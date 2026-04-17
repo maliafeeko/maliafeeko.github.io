@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDSU Women in Business · Malia Feeko</title>
+
+  <!-- Google Fonts: Cormorant (italic serif) + Inter (sans-serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FAF7F2;
+      --text: #1A1A1A;
+      --muted: #6B6B6B;
+      --border: #E8E2D6;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img, video { max-width: 100%; display: block; }
+
+    /* ---------- NAV ---------- */
+    .nav {
+      padding: 30px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 52px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav a {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text);
+      transition: opacity 0.2s ease;
+    }
+    .nav a:hover { opacity: 0.55; }
+    .nav a.active { font-weight: 600; }
+
+    /* ---------- LAYOUT ---------- */
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ---------- PAGE HEADER ---------- */
+    .page-header {
+      padding: 90px 0 40px;
+      text-align: center;
+    }
+
+    .page-header .eyebrow {
+      display: block;
+      margin-bottom: 28px;
+    }
+
+    .page-header h1 {
+      font-family: 'Cormorant', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: clamp(54px, 9vw, 120px);
+      line-height: 1;
+      letter-spacing: 0.01em;
+      margin-bottom: 20px;
+    }
+
+    .page-header .subtitle {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ---------- INTRO ---------- */
+    .intro {
+      max-width: 720px;
+      margin: 48px auto 0;
+      text-align: center;
+      padding-bottom: 90px;
+    }
+
+    .intro p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    /* ---------- HERO IMAGE ---------- */
+    .hero-image {
+      margin-bottom: 20px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    /* ---------- PROGRESSION STRIP ---------- */
+    .progression {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 18px;
+      align-items: center;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0;
+    }
+
+    .progression .step {
+      text-align: center;
+    }
+
+    .progression .step .role {
+      font-family: 'Cormorant', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: clamp(18px, 2.2vw, 22px);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .progression .step .when {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .progression .arrow {
+      color: var(--muted);
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    /* ---------- ROLE SECTIONS ---------- */
+    .role {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .role:last-of-type { border-bottom: 0; }
+
+    .role-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .role-number {
+      font-family: 'Cormorant', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 20px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .role-title {
+      font-family: 'Cormorant', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .role-dates {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .role-body {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .role-body p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    /* ---------- HIGHLIGHTS LIST ---------- */
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .highlight {
+      text-align: center;
+      padding: 36px 24px;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    .highlight .tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .highlight .text {
+      font-family: 'Cormorant', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.4;
+      color: var(--text);
+    }
+
+    /* ---------- STATS ---------- */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 42px 24px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      background: #fff;
+    }
+
+    .stat .number {
+      font-family: 'Cormorant', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: clamp(44px, 6vw, 68px);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .stat .label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ---------- IPHONE MOCKUPS ---------- */
+    .phones-intro {
+      text-align: center;
+      margin-top: 90px;
+      margin-bottom: 40px;
+    }
+
+    .phones-intro .section-label { display: block; margin-bottom: 14px; }
+
+    .phones-intro h3 {
+      font-family: 'Cormorant', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(26px, 3.2vw, 34px);
+      line-height: 1.2;
+    }
+
+    .phones {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 20px 0 20px;
+    }
+
+    .phone {
+      position: relative;
+      aspect-ratio: 9 / 19.5;
+      background: #0A0A0A;
+      border-radius: 38px;
+      padding: 9px;
+      box-shadow:
+        0 30px 60px -20px rgba(0, 0, 0, 0.35),
+        0 0 0 2px rgba(0, 0, 0, 0.08),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    }
+
+    /* Dynamic island */
+    .phone::before {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 34%;
+      height: 20px;
+      background: #000;
+      border-radius: 999px;
+      z-index: 2;
+    }
+
+    .phone video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 30px;
+      display: block;
+      background: #000;
+    }
+
+    /* ---------- VISION CARD (Co-President) ---------- */
+    .vision {
+      max-width: 780px;
+      margin: 56px auto 0;
+      padding: 56px 48px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      text-align: center;
+    }
+
+    .vision .tag {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .vision p {
+      font-family: 'Cormorant', serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(22px, 2.8vw, 28px);
+      line-height: 1.45;
+      color: var(--text);
+    }
+
+    /* Co-president single stat */
+    .single-stat {
+      max-width: 360px;
+      margin: 56px auto 0;
+    }
+
+    /* ---------- ROLE IMAGE ---------- */
+    .role-image {
+      margin-top: 56px;
+    }
+
+    .role-image img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    /* ---------- BACK LINK ---------- */
+    .back {
+      text-align: center;
+      padding: 80px 0 90px;
+      border-top: 1px solid var(--border);
+    }
+
+    .back a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .back a:hover {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      padding: 28px 40px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ---------- MOBILE ---------- */
+    @media (max-width: 900px) {
+      .highlights { grid-template-columns: 1fr; gap: 14px; }
+      .stats { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .stat { padding: 28px 12px; }
+      .stat .label { font-size: 9px; letter-spacing: 0.14em; }
+      .phones { grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 100%; }
+      .phone { border-radius: 26px; padding: 6px; }
+      .phone::before { top: 10px; height: 14px; width: 36%; }
+      .phone video { border-radius: 20px; }
+      .progression { grid-template-columns: 1fr; gap: 18px; }
+      .progression .arrow { display: none; }
+      .vision { padding: 40px 28px; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 0 22px; }
+      .nav { padding: 20px 16px; gap: 18px; flex-wrap: wrap; }
+      .nav a { font-size: 10px; letter-spacing: 0.15em; }
+      .page-header { padding: 60px 0 30px; }
+      .intro { padding-bottom: 60px; }
+      .role { padding: 70px 0; }
+      .role-header { margin-bottom: 40px; }
+      .stats { gap: 8px; }
+      .stat { padding: 22px 8px; }
+      .stat .number { font-size: 32px; margin-bottom: 8px; }
+      .stat .label { font-size: 8px; letter-spacing: 0.1em; }
+      .phones { grid-template-columns: 1fr; gap: 24px; max-width: 280px; }
+      .footer { padding: 22px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="tower28.html">Tower 28</a>
+    <a href="wib.html" class="active">SDSU Women in Business</a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header wrap">
+    <span class="section-label eyebrow">SDSU Chapter</span>
+    <h1>Women in Business</h1>
+    <p class="subtitle">Marketing Intern · Content Director · Co-President</p>
+  </header>
+
+  <!-- INTRO -->
+  <div class="wrap">
+    <section class="intro">
+      <p>I joined SDSU Women in Business as a marketing intern in August 2024. Since then I've led content for our TikTok as Content Director, and in April 2026 I was elected Co-President of our 1,200+ member chapter.</p>
+    </section>
+  </div>
+
+  <!-- ROLE 01 — Marketing Intern -->
+  <div class="wrap">
+    <section class="role">
+      <div class="role-header">
+        <p class="role-number">01</p>
+        <h2 class="role-title">Marketing Intern</h2>
+        <p class="role-dates">Aug 2024 – May 2025</p>
+      </div>
+
+      <div class="role-body">
+        <p>My first role in WIB. I was the hands behind our outreach, designing Instagram graphics for upcoming events, building collaborations with other SDSU clubs, and recruiting guest speakers to bring real industry voices into our meetings.</p>
+      </div>
+
+      <div class="role-image">
+        <img src="wib/DSC_1839.jpg" alt="SDSU Women in Business event">
+      </div>
+    </section>
+  </div>
+
+  <!-- ROLE 02 — Content Director -->
+  <div class="wrap">
+    <section class="role">
+      <div class="role-header">
+        <p class="role-number">02</p>
+        <h2 class="role-title">Content Director</h2>
+        <p class="role-dates">May 2025 – April 2026</p>
+      </div>
+
+      <div class="role-body">
+        <p>Promoted to run WIB's TikTok for the 2025–26 school year. I owned our short-form video strategy end to end, from concepting and filming to editing, posting, and tracking what actually landed.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="number">171K</div>
+          <div class="label">TikTok views<br>(2025–26)</div>
+        </div>
+        <div class="stat">
+          <div class="number">8K</div>
+          <div class="label">Likes earned<br>(2025–26)</div>
+        </div>
+        <div class="stat">
+          <div class="number">+460</div>
+          <div class="label">New followers<br>(2025–26)</div>
+        </div>
+      </div>
+
+      <div class="phones-intro">
+        <span class="section-label">Selected Work</span>
+        <h3>A few of the videos I made.</h3>
+      </div>
+
+      <div class="phones">
+        <div class="phone">
+          <video src="wib/v15044gf0000d30f047og65m3d39evs0.MP4" autoplay muted loop playsinline></video>
+        </div>
+        <div class="phone">
+          <video src="wib/v15044gf0000d35enofog65nj6vjnmig.MP4" autoplay muted loop playsinline></video>
+        </div>
+        <div class="phone">
+          <video src="wib/v15044gf0000d3j9cinog65p2m3j735g.MP4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ROLE 03 — Co-President -->
+  <div class="wrap">
+    <section class="role">
+      <div class="role-header">
+        <p class="role-number">03</p>
+        <h2 class="role-title">Co-President</h2>
+        <p class="role-dates">April 2026 – Present</p>
+      </div>
+
+      <div class="role-body">
+        <p>Elected in April 2026 to lead WIB for the 2026–27 term alongside my co-president.</p>
+      </div>
+
+      <div class="single-stat">
+        <div class="stat">
+          <div class="number">1,200+</div>
+          <div class="label">Members<br>in our chapter</div>
+        </div>
+      </div>
+
+      <div class="vision">
+        <span class="tag">My focus this year</span>
+        <p>Preparing our members for careers in business while protecting what makes WIB feel like a community.</p>
+      </div>
+
+      <div class="role-image">
+        <img src="wib/DSC_9890.jpg" alt="SDSU Women in Business">
+      </div>
+    </section>
+  </div>
+
+  <!-- BACK -->
+  <div class="back">
+    <a href="index.html">&larr; Back to Home</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    &copy; 2026 Malia Feeko
+  </footer>
+
+</body>
+</html>
