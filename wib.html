@@ -8,7 +8,7 @@
   <!-- Google Fonts: Cormorant (italic serif) + Inter (sans-serif) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant:ital,wght@1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -16,6 +16,8 @@
       --text: #1A1A1A;
       --muted: #6B6B6B;
       --border: #E8E2D6;
+      --rose: #C9868B;
+      --rose-soft: #F3E1E1;
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -452,6 +454,55 @@
       .phones { grid-template-columns: 1fr; gap: 24px; max-width: 280px; }
       .footer { padding: 22px 16px; }
     }
+
+    /* ---------- TIMELINE ---------- */
+    .timeline { max-width:900px; margin:0 auto 20px; padding:8px 0 72px; }
+    .timeline .section-label { display:block; text-align:center; margin-bottom:40px; }
+    .tl { list-style:none; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); position:relative; }
+    .tl::before { content:''; position:absolute; top:11px; left:16.66%; right:16.66%; height:2px; background:linear-gradient(90deg, var(--border), var(--rose)); border-radius:2px; }
+    .tl li { position:relative; text-align:center; padding:0 12px; display:flex; flex-direction:column; align-items:center; gap:8px; min-width:0; }
+    .tl .dot { width:24px; height:24px; border-radius:50%; background:var(--bg); border:2px solid var(--rose); position:relative; z-index:1; margin-bottom:10px; }
+    .tl .now .dot { background:var(--rose); box-shadow:0 0 0 6px var(--rose-soft); }
+    .tl .when { font-size:10px; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--muted); }
+    .tl .what { font-family:'Cormorant', serif; font-style:italic; font-weight:600; font-size:clamp(22px,2.6vw,28px); line-height:1.1; }
+    .tl .blurb { font-size:13px; color:var(--muted); line-height:1.55; max-width:220px; }
+    .tl .pill { font-size:9px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase; color:#fff; background:var(--rose); padding:4px 10px; border-radius:40px; }
+    .tl .txt { display:flex; flex-direction:column; align-items:center; gap:8px; }
+    @media (max-width: 640px) {
+      .tl { grid-template-columns:1fr; gap:34px; padding-left:8px; }
+      .tl::before { top:12px; bottom:12px; left:19px; right:auto; width:2px; height:auto; background:linear-gradient(180deg, var(--border), var(--rose)); }
+      .tl li { flex-direction:row; flex-wrap:wrap; text-align:left; align-items:flex-start; padding:0; column-gap:16px; row-gap:4px; }
+      .tl .dot { margin:0; flex:0 0 24px; }
+      .tl .txt { flex:1; min-width:0; display:flex; flex-direction:column; gap:6px; align-items:flex-start; }
+    }
+
+    /* ---------- E-BOARD PHOTOS WITH NOTES ---------- */
+    .duo { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,2fr); gap:28px; align-items:center; margin-top:64px; }
+    .duo figure { margin:0; display:flex; flex-direction:column; gap:6px; min-width:0; }
+    .duo img { width:100%; object-fit:cover; border-radius:2px; }
+    .duo .a img { aspect-ratio:3/2; }
+    .duo .b img { aspect-ratio:2/3; }
+    .scribble { display:flex; align-items:flex-end; gap:4px; font-family:'Caveat', 'Bradley Hand', 'Segoe Print', cursive; font-weight:600; font-size:clamp(24px,2.6vw,30px); line-height:1; color:var(--rose); }
+    .scribble svg { width:64px; height:52px; flex:0 0 auto; overflow:visible; }
+    .scribble path { fill:none; stroke:var(--rose); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+    .duo .a .scribble { padding-left:6%; }
+    .duo .a .scribble span { transform:rotate(-3deg); margin-bottom:22px; }
+    .duo .b .scribble { justify-content:flex-end; padding-right:9%; white-space:nowrap; }
+    .duo .b .scribble span { transform:rotate(-3deg); margin-bottom:22px; }
+    @media (max-width: 640px) {
+      .duo { grid-template-columns:1fr; gap:36px; }
+      .duo .b { max-width:78%; margin-left:auto; }
+    }
+
+    /* ---------- CO-PRESIDENT HEADSHOT ROW ---------- */
+    .pres-row { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:28px; max-width:900px; margin:56px auto 0; align-items:stretch; }
+    .pres-photo { width:100%; height:100%; min-height:420px; object-fit:cover; object-position:center 25%; border-radius:2px; }
+    .pres-side { display:flex; flex-direction:column; gap:20px; min-width:0; }
+    .pres-side .vision { margin:0; flex:1; display:flex; flex-direction:column; justify-content:center; }
+    @media (max-width: 640px) {
+      .pres-row { grid-template-columns:1fr; }
+      .pres-photo { min-height:0; aspect-ratio:4/5; height:auto; max-width:300px; margin:0 auto; }
+    }
   </style>
 </head>
 <body>
@@ -477,22 +528,57 @@
     </section>
   </div>
 
-  <!-- ROLE 01 — Marketing Intern -->
+  <!-- TIMELINE -->
+  <div class="wrap">
+    <section class="timeline">
+      <span class="section-label">My WIB Journey</span>
+      <ol class="tl">
+        <li><span class="dot"></span><div class="txt"><span class="when">Aug 2024</span><span class="what">Marketing Intern</span><span class="blurb">Event graphics, club collabs &amp; guest speakers</span></div></li>
+        <li><span class="dot"></span><div class="txt"><span class="when">May 2025</span><span class="what">Content Director</span><span class="blurb">Ran our TikTok: 171K views in one school year</span></div></li>
+        <li class="now"><span class="dot"></span><div class="txt"><span class="when">April 2026</span><span class="what">Co-President</span><span class="pill">Now</span><span class="blurb">Leading our 1,200+ member chapter</span></div></li>
+      </ol>
+    </section>
+  </div>
+
+  <!-- ROLE 01 — Co-President -->
   <div class="wrap">
     <section class="role">
       <div class="role-header">
         <p class="role-number">01</p>
-        <h2 class="role-title">Marketing Intern</h2>
-        <p class="role-dates">Aug 2024 – May 2025</p>
+        <h2 class="role-title">Co-President</h2>
+        <p class="role-dates">April 2026 – Present</p>
       </div>
 
       <div class="role-body">
-        <p>My first role in WIB. I was the hands behind our outreach, designing Instagram graphics for upcoming events, building collaborations with other SDSU clubs, and recruiting guest speakers to bring real industry voices into our meetings.</p>
+        <p>Elected in April 2026 to lead WIB for the 2026–27 term alongside my co-president.</p>
       </div>
 
-      <div class="role-image">
-        <img src="wib/DSC_1839.jpg" alt="SDSU Women in Business event">
+      <div class="pres-row">
+        <img class="pres-photo" src="wib/wib-headshot.jpg" alt="Malia Feeko headshot">
+        <div class="pres-side">
+          <div class="stat">
+            <div class="number">1,200+</div>
+            <div class="label">Members<br>in our chapter</div>
+          </div>
+          <div class="vision">
+            <span class="tag">My focus this year</span>
+            <p>Preparing our members for careers in business while protecting what makes WIB feel like a community.</p>
+          </div>
+        </div>
       </div>
+
+
+      <div class="duo">
+        <figure class="a">
+          <figcaption class="scribble"><span>me and my E-Board</span><svg viewBox="0 0 64 52" aria-hidden="true"><path d="M4 6 C 28 2, 50 14, 54 44"/><path d="M45 37 L54 46 L60 35"/></svg></figcaption>
+          <img src="wib/eboard.jpg" alt="Malia with the SDSU Women in Business executive board on the steps of an archway on campus">
+        </figure>
+        <figure class="b">
+          <figcaption class="scribble"><span>my co-president, Olivia</span><svg viewBox="0 0 64 52" aria-hidden="true"><path d="M4 6 C 28 2, 50 14, 54 44"/><path d="M45 37 L54 46 L60 35"/></svg></figcaption>
+          <img src="wib/presidents.jpg" alt="Malia and her co-president Olivia">
+        </figure>
+      </div>
+
     </section>
   </div>
 
@@ -543,33 +629,21 @@
     </section>
   </div>
 
-  <!-- ROLE 03 — Co-President -->
+  <!-- ROLE 03 — Marketing Intern -->
   <div class="wrap">
     <section class="role">
       <div class="role-header">
         <p class="role-number">03</p>
-        <h2 class="role-title">Co-President</h2>
-        <p class="role-dates">April 2026 – Present</p>
+        <h2 class="role-title">Marketing Intern</h2>
+        <p class="role-dates">Aug 2024 – May 2025</p>
       </div>
 
       <div class="role-body">
-        <p>Elected in April 2026 to lead WIB for the 2026–27 term alongside my co-president.</p>
-      </div>
-
-      <div class="single-stat">
-        <div class="stat">
-          <div class="number">1,200+</div>
-          <div class="label">Members<br>in our chapter</div>
-        </div>
-      </div>
-
-      <div class="vision">
-        <span class="tag">My focus this year</span>
-        <p>Preparing our members for careers in business while protecting what makes WIB feel like a community.</p>
+        <p>My first role in WIB. I was the hands behind our outreach, designing Instagram graphics for upcoming events, building collaborations with other SDSU clubs, and recruiting guest speakers to bring real industry voices into our meetings.</p>
       </div>
 
       <div class="role-image">
-        <img src="wib/DSC_9890.jpg" alt="SDSU Women in Business">
+        <img src="wib/DSC_1839.jpg" alt="SDSU Women in Business event">
       </div>
     </section>
   </div>
